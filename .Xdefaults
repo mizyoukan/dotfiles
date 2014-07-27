@@ -1,0 +1,51 @@
+URxvt*termName: rxvt-256color
+URxvt.font: xft:RictyDiscord:size=10.5:antialias=true
+URxvt.scrollBar: false
+URxvt.depth: 32
+
+URxvt*cursorColor: #aaaaaa
+
+!URxvt*colorUL: #c5f779
+!URxvt*underlineColor: #c5f779
+!
+!URxvt*foreground: #e0d7d7
+!URxvt*background: #3f3f3f
+!
+!URxvt*color0:  #3f3f3f
+!URxvt*color1:  #705050
+!URxvt*color2:  #60b48a
+!URxvt*color3:  #dfaf8f
+!URxvt*color4:  #506070
+!URxvt*color5:  #dc8cc3
+!URxvt*color6:  #8cd0d3
+!URxvt*color7:  #dcdccc
+!URxvt*color8:  #709080
+!URxvt*color9:  #cc9393
+!URxvt*color10: #7f9f7f
+!URxvt*color11: #f0dfaf
+!URxvt*color12: #94bff3
+!URxvt*color13: #ec93d3
+!URxvt*color14: #93e0e3
+!URxvt*color15: #ffffff
+
+
+! LucuisDark
+*foreground:  #d7d7d7
+*background:  #303030
+*cursorColor: #87afd7
+*color0:      #303030
+*color1:      #ff5f5f
+*color2:      #afd787
+*color3:      #d7d7af
+*color4:      #87d7ff
+*color5:      #d7afd7
+*color6:      #87d7af
+*color7:      #d7d7d7
+*color8:      #303030
+*color9:      #ff5f5f
+*color10:     #afd787
+*color11:     #d7d7af
+*color12:     #87d7ff
+*color13:     #d7afd7
+*color14:     #87d7af
+*color15:     #d7d7d7

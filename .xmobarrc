@@ -1,0 +1,17 @@
+Config {
+  font = "xft:Ricty Discord:bold:size=10.5",
+  fgColor = "#d7d7d7",
+  bgColor = "#303030",
+  position = Top,
+  lowerOnStart = False,
+  commands = [
+    Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
+    Run Network "enp0s3" ["-L","0","-H","32","--normal","green","--high","red"] 10,
+    Run Memory ["-t","Mem: <usedratio>%"] 10,
+    Run Date "%a %b %_d %Y %H:%M:%S" "date" 10,
+    Run StdinReader
+  ],
+  sepChar = "%",
+  alignSep = "}{",
+  template = "%StdinReader%}{%cpu% %memory% | %enp0s3% | %date%"
+}

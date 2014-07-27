@@ -1,0 +1,13 @@
+[user]
+	name = Tamaki Mizuha
+	email = mizyoukan@outlook.com
+
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	st = status
+	l = log --pretty=format:'%Cred%h%Creset:%C(yellow)%d %C(bold blue)<%an> %Cgreen(%cr)%n %Creset%s' --abbrev-commit
+
+[ghq]
+	root = ~/src
