@@ -9,3 +9,10 @@ for file in ${HOME_FILES[@]}; do
     ln -s $CURDIR/$file $HOME/$file
   fi
 done
+
+if [ ! -d $HOME/.config/peco ]; then
+  mkdir -p $HOME/.config/peco
+fi
+if [ ! -e $HOME/.config/peco/config.json ]; then
+  ln -s $CURDIR/peco_config.json $HOME/.config/peco/config.json
+fi
