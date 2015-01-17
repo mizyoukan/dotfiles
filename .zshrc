@@ -45,6 +45,20 @@ zstyle ':completion:*:default' menu select=1
 setopt globdots
 # }}}
 
+# cdr {{{
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+if [ ! -d $HOME/.cache/shell ]; then
+  mkdir -p $HOME/.cache/shell
+fi
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true
+# }}}
+
 # History {{{
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
@@ -72,13 +86,27 @@ alias em='emacs -nw'
 # }}}
 
 # Commands {{{
-function peco-edit-dotfiles() {
-  local selected_file=$(find ~/dotfiles -type f | grep -v ".git/" | peco)
-  if [ -n "$selected_file" ]; then
-    BUFFER="vim ${selected_file}"
-  fi
-  zle clear-screen
-}
-zle -N peco-edit-dotfiles
-bindkey '^u' peco-edit-dotfiles
+if [[ -x `which peco 2>/dev/null` ]]; then
+  peco-edit-dotfiles() {
+    local selected_file=$(find ~/dotfiles -type f | grep -v '.git/' | peco)
+    if [ -n "$selected_file" ]; then
+      BUFFER="vim ${selected_file}"
+      zle accept-line
+    fi
+    zle clear-screen
+  }
+  zle -N peco-edit-dotfiles
+  bindkey '^u' peco-edit-dotfiles
+
+  peco-cdr() {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+      BUFFER="cd ${selected_dir}"
+      zle accept-line
+    fi
+    zle clear-screen
+  }
+  zle -N peco-cdr
+  bindkey '^@' peco-cdr
+fi
 # }}}
