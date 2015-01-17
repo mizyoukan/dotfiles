@@ -76,9 +76,9 @@ case "${OSTYPE}" in
     ;;
 esac
 
-alias rm="rm -i"
-alias cp="cp -i"
-alias cp="mv -i"
+alias rm='rm -i'
+alias cp='cp -i'
+alias cp='mv -i'
 
 alias vi='vim'
 alias emacs='emacs -nw'
